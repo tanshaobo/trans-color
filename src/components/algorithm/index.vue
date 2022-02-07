@@ -71,9 +71,6 @@ nextTick(() => {
     return arr
   }
   bubbleSort(nums)
-  const Start = () => {
-    bubbleSort(nums)
-  }
 })
 </script>
 <style lang="stylus">
