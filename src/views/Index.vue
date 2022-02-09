@@ -1,16 +1,16 @@
 <template>
-  <container>
-    <aside>
+  <el-container>
+    <el-aside>
       <SideMenu />
-    </aside>
-    <container>
-      <header></header>
-      <main>
+    </el-aside>
+    <el-container>
+      <el-header></el-header>
+      <el-main>
         <router-view></router-view>
-      </main>
-      <footer></footer>
-    </container>
-  </container>
+      </el-main>
+      <el-footer></el-footer>
+    </el-container>
+  </el-container>
 </template>
 
 <script setup>
@@ -91,29 +91,18 @@ const Totree3 = () => {
 </script>
 
 <style lang="stylus" scoped>
-container
-  display flex
-  aside
+.el-container
+  .el-aside
     width 240px
     height 100vh
-    box-sizing border-box
     box-shadow inset 0 2px 8px 0px rgba(255, 0, 0, .4)
-  container
-    display flex
-    flex-direction column
+  .el-container
     width calc(100vw - 240px)
-    header
-      height 60px
+    .el-header
       box-shadow inset 0 2px 8px 0px rgba(0, 0, 0, .4)
-      padding 0 20px
-      box-sizing border-box
-    main
-      padding 20px
-      box-sizing border-box
-      height calc(100vh - 100px)
+    .el-main
+      height calc(100vh - 120px)
       box-shadow inset 0 2px 8px 0px rgba(0, 255, 0, .4)
-    footer
-      box-sizing border-box
-      height 40px
+    .el-footer
       box-shadow inset 0 2px 8px 0px rgba(0, 0, 255, .4)
 </style>
