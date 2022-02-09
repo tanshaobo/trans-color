@@ -6,9 +6,11 @@
     :unique-opened="true"
     :collapse="collapse"
   >
+    <menuTree :menu="menuOptions" />
   </el-menu>
 </template>
 <script setup>
+import menuTree from './components/MenuTree.vue'
 import { onMounted, reactive, toRefs, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 // 用来获取 路由信息
@@ -25,7 +27,8 @@ const props = defineProps({
 
 const state = reactive({
   activeRoute: '',
-  expandedActiveKey: []
+  expandedActiveKey: [],
+  menuOptions: []
 })
 
 watch(
@@ -66,8 +69,8 @@ const getMenus = (data) => {
 }
 
 onMounted(() => {
-  console.log(getMenus(router.options.routes.filter((item) => item.isMenu)))
+  state.menuOptions = getMenus(router.options.routes.filter((item) => item.isMenu))
 })
-const { activeRoute, expandedActiveKey, collapse } = toRefs(state)
+const { activeRoute, expandedActiveKey, collapse, menuOptions } = toRefs(state)
 </script>
 <style lang="stylus" scoped></style>

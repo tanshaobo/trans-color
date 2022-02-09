@@ -15,7 +15,7 @@
 
 <script setup>
 import { reactive } from 'vue'
-import SideMenu from '../components/layout/SideMenu.vue'
+import SideMenu from '@/components/layout/SideMenu/index.vue'
 const source = [
   { Id: 1, Pid: 0, title: '1' },
   { Id: 2, Pid: 0, title: '2' },
