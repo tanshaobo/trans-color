@@ -45,7 +45,7 @@ const Totree = (data, root = 0) => {
   })
   return arr
 }
-console.log(Totree(source))
+console.log(Totree(source), 'Totree')
 
 const Totree1 = (data) => {
   let arr = []
@@ -63,7 +63,7 @@ const Totree1 = (data) => {
   })
   return arr
 }
-console.log(Totree1(source))
+console.log(Totree1(source), 'Totree1')
 
 const Totree2 = (data, root = 0) => {
   const result = []
@@ -80,7 +80,7 @@ const getChildren = (data, result, pid) => {
   })
 }
 
-console.log(Totree2(source))
+console.log(Totree2(source), 'Totree2')
 
 const Totree3 = () => {
   data = source.map((i) => {
