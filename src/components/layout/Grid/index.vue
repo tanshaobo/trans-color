@@ -13,7 +13,7 @@
 </template>
 <script setup>
 import { onMounted, reactive, toRefs, ref, watch } from 'vue'
-
+import handleSourceData from './Hooks/handleSourceData'
 const props = defineProps({
   dataList: {
     type: Array,
@@ -37,23 +37,9 @@ watch(
 const box = ref()
 const computedLayout = () => {
   state.column = Math.floor(box.value.clientWidth / 260)
-  let remain = state.column - (state.dataList.length % state.column)
-  state.dataList.length = state.dataList.length + remain
-  state.dataList.fill({ remain: true }, state.dataList.length - remain, state.dataList.length)
-  state.showList = handleArr(state.dataList, state.column)
+  state.showList = handleSourceData(state.dataList, state.column, { remain: true })
 }
-const handleArr = (arr, num) => {
-  let result = new Array(Math.ceil(arr.length / num))
-  result.fill(null, 0, result.length)
-  for (let i = 0; i < arr.length; i++) {
-    if (Array.isArray(result[Math.floor(i / num)])) {
-      result[Math.floor(i / num)].push(arr[i])
-    } else {
-      result[Math.floor(i / num)] = [arr[i]]
-    }
-  }
-  return result
-}
+
 const ClickHandle = (item) => {
   emit('click', item)
 }
