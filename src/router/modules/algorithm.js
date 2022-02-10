@@ -2,7 +2,7 @@
  * @Author: tanshaobo
  * @Date: 2022-02-09 13:13:51
  * @LastEditors: tanshaobo
- * @LastEditTime: 2022-02-09 16:27:06
+ * @LastEditTime: 2022-02-10 09:58:11
  * @Description: 算法
  * @FilePath: \trans-color\src\router\modules\algorithm.js
  */
@@ -22,10 +22,10 @@ const algorithm = {
       component: () => import('@/views/Algorithm/AlgorithmList/index.vue')
     },
     {
-      path: '/algorithmDetail',
+      path: '/algorithmDetail/:id',
       label: '详情',
       name: 'AlgorithmDetail',
-      component: () => import('@/views/Algorithm/AlgorithmList/index.vue')
+      component: () => import('@/views/Algorithm/AlgorithmDetail/index.vue')
     }
   ]
 }
