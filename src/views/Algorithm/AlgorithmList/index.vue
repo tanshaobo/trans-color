@@ -2,10 +2,10 @@
   <Grid :data-list="dataList" @click="enterDetail"></Grid>
 </template>
 <script setup>
-import Grid from '@/components/layout/Grid/index.vue'
-
 import { reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
+import Grid from '@/components/layout/Grid/index.vue'
+
 const state = reactive({
   dataList: [
     { id: 1, label: '冒泡排序', remain: false },
