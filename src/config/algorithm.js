@@ -2,7 +2,7 @@
  * @Author: tanshaobo
  * @Date: 2022-02-11 09:23:55
  * @LastEditors: tanshaobo
- * @LastEditTime: 2022-02-11 18:07:02
+ * @LastEditTime: 2022-02-11 18:12:45
  * @Description: 算法配置
  * @FilePath: \trans-color\src\config\algorithm.js
  */
@@ -84,7 +84,7 @@ const data = [
     bastComplexity: 'O(n*k)',
     worstComplexity: 'O(n*k)',
     spaceComplexity: 'O(n+k)',
-    baseIdea: ''
+    baseIdea: '将整数按位数切割成不同的数字，然后按每个位数分别比较'
   },
   {
     id: 7,
