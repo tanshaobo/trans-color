@@ -2,7 +2,7 @@
  * @Author: tanshaobo
  * @Date: 2022-02-11 09:23:55
  * @LastEditors: tanshaobo
- * @LastEditTime: 2022-02-11 17:58:08
+ * @LastEditTime: 2022-02-11 18:07:02
  * @Description: 算法配置
  * @FilePath: \trans-color\src\config\algorithm.js
  */
@@ -43,7 +43,8 @@ const data = [
     bastComplexity: 'O(n)',
     worstComplexity: 'O(n²)',
     spaceComplexity: 'O(1)',
-    baseIdea: ''
+    baseIdea:
+      '将未排序的序列分为一个有序表和一个无序表，有序表中有一个元素，无序表中有n-1个元素，排序时，每次从无序表中抽取第一个元素，将它插入到有序表中适当位置，重复n-1次'
   },
   {
     id: 4,
@@ -55,7 +56,10 @@ const data = [
     bastComplexity: 'O(nlog₂n)',
     worstComplexity: 'O(nlog₂n)',
     spaceComplexity: 'O(1)',
-    baseIdea: ''
+    baseIdea: `
+      1、初始化堆：将数列a[1...n]构造成最大堆。
+      2、交换数据：将a[1]和a[n]交换，使a[n]是a[1...n]中的最大值；然后将a[1...n-1]重新调整为最大堆。 接着，将a[1]和a[n-1]交换，使a[n-1]是a[1...n-1]中的最大值；然后将a[1...n-2]重新调整为最大值。 依次类推，直到整个数列都是有序的
+      `
   },
   {
     id: 5,
@@ -67,7 +71,8 @@ const data = [
     bastComplexity: 'O(nlog₂n)',
     worstComplexity: 'O(n²)',
     spaceComplexity: 'O(log₂n)',
-    baseIdea: ''
+    baseIdea:
+      '选择一个基准数，通过一趟排序将要排序的数据分割成独立的两部分；其中一部分的所有数据都比另外一部分的所有数据都要小。然后，再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列'
   },
   {
     id: 6,
