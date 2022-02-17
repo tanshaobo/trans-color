@@ -37,7 +37,7 @@ watch(
   (newVal) => {
     state.dataList = JSON.parse(JSON.stringify(newVal))
   },
-  { immediate: true }
+  { immediate: true, deep: true }
 )
 const box = ref()
 const computedLayout = () => {

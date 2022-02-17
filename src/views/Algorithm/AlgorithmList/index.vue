@@ -1,4 +1,32 @@
 <template>
+  <el-form :model="formData" inline>
+    <el-form-item>
+      <el-input v-model="formData.keyWord" clearable placeholder="请输入名称"></el-input>
+    </el-form-item>
+    <el-form-item>
+      <el-select v-model="formData.isStable" placeholder="是否稳定">
+        <el-option
+          v-for="(item, index) in stableList"
+          :key="index"
+          :label="item.label"
+          :value="item.value"
+        ></el-option>
+      </el-select>
+    </el-form-item>
+    <el-form-item>
+      <el-select v-model="formData.isLinear" placeholder="是否线性">
+        <el-option
+          v-for="(item, index) in linearList"
+          :key="index"
+          :label="item.label"
+          :value="item.value"
+        ></el-option>
+      </el-select>
+    </el-form-item>
+    <el-form-item>
+      <el-button @click="search">搜索</el-button>
+    </el-form-item>
+  </el-form>
   <Grid :data-list="dataList" class="grid">
     <template #default="slotProps">
       <div v-for="(item, index) in slotProps.item" :key="item.id">
@@ -18,20 +46,27 @@
 import { reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 import Grid from '@/components/layout/Grid/index.vue'
+import { stableList, linearList } from '@/config/common'
 import data from '@/config/algorithm'
 import deepCopyObject from '@/utils/deepCopyObject'
 
+const dataHeader = {
+  id: '编号',
+  label: '名称',
+  stable: '是否稳定',
+  linear: '是否线性',
+  timeComplexity: '时间复杂度',
+  bastComplexity: '最低复杂度',
+  worstComplexity: '最高复杂度',
+  spaceComplexity: '空间复杂度'
+}
+
 const state = reactive({
   dataList: [],
-  dataHeader: {
-    id: '编号',
-    label: '名称',
-    stable: '是否稳定',
-    linear: '是否线性',
-    timeComplexity: '时间复杂度',
-    bastComplexity: '最低复杂度',
-    worstComplexity: '最高复杂度',
-    spaceComplexity: '空间复杂度'
+  formData: {
+    keyWord: '',
+    isStable: '',
+    isLinear: ''
   }
 })
 
@@ -53,7 +88,17 @@ const Init = () => {
   })
 }
 Init()
-const { dataList, dataHeader } = toRefs(state)
+
+const search = () => {
+  console.log(state.formData)
+  if (state.formData.keyWord) {
+    state.dataList = state.dataList.filter(
+      (item) => item.label.indexOf(state.formData.keyWord) > -1
+    )
+  }
+}
+
+const { dataList, formData } = toRefs(state)
 </script>
 <style lang="stylus">
 .grid
