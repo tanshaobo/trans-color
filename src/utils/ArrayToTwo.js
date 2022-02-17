@@ -2,12 +2,12 @@
  * @Author: tanshaobo
  * @Date: 2022-02-10 18:06:20
  * @LastEditors: tanshaobo
- * @LastEditTime: 2022-02-10 18:08:33
+ * @LastEditTime: 2022-02-17 15:43:31
  * @Description: 生成二维数组
- * @FilePath: \trans-color\src\components\layout\Grid\Hooks\getShowList.js
+ * @FilePath: \trans-color\src\utils\ArrayToTwo.js
  */
 
-const getShowList = (arr, num) => {
+const ArrayToTwo = (arr, num) => {
   let result = new Array(Math.ceil(arr.length / num))
   result.fill(null, 0, result.length)
   for (let i = 0; i < arr.length; i++) {
@@ -20,4 +20,4 @@ const getShowList = (arr, num) => {
   return result
 }
 
-export default getShowList
+export default ArrayToTwo
