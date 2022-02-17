@@ -3,7 +3,7 @@
     <div class="card-box" v-if="showType == 'card'">
       <el-row v-for="(item, index) in showList" :key="index">
         <div class="column-item" v-for="(i, j) in item" :key="j">
-          <el-card>
+          <el-card v-if="!i.remain">
             <slot :item="i" name="default"></slot>
           </el-card>
           <slot :item="i" name="main"></slot>
