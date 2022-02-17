@@ -10,15 +10,7 @@ import Grid from '@/components/layout/Grid/index.vue'
 import data from '@/config/algorithm'
 
 const state = reactive({
-  dataList: [
-    { id: 1, label: '冒泡排序', remain: false },
-    { id: 2, label: '选择排序', remain: false },
-    { id: 3, label: '插入排序', remain: false },
-    { id: 4, label: '堆排序', remain: false },
-    { id: 5, label: '快速排序', remain: false },
-    { id: 6, label: '基数排序', remain: false },
-    { id: 7, label: '希尔排序', remain: false }
-  ]
+  dataList: []
 })
 
 const router = useRouter()
