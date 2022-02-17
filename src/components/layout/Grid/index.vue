@@ -1,20 +1,27 @@
 <template>
   <section class="container" ref="box">
-    <el-row v-for="(item, index) in showList" :key="index">
-      <div class="column-item" v-for="(i, j) in item" :key="j">
-        <slot :item="i">
-          <el-card v-if="!i.remain" @click="ClickHandle(i)">
-            {{ i.label }}
+    <div class="card-box" v-if="showType == 'card'">
+      <el-row v-for="(item, index) in showList" :key="index">
+        <div class="column-item" v-for="(i, j) in item" :key="j">
+          <el-card>
+            <slot :item="i" name="default"></slot>
           </el-card>
-        </slot>
-      </div>
-    </el-row>
+          <slot :item="i" name="main"></slot>
+        </div>
+      </el-row>
+    </div>
+    <div class="card-box" v-if="showType == 'table'"></div>
   </section>
 </template>
 <script setup>
 import { onMounted, reactive, toRefs, ref, watch } from 'vue'
 import handleSourceData from './Hooks/handleSourceData'
+
 const props = defineProps({
+  showType: {
+    type: String,
+    default: 'card'
+  },
   dataList: {
     type: Array,
     default: () => []
@@ -26,7 +33,6 @@ const state = reactive({
   dataList: [],
   showList: []
 })
-
 watch(
   props.dataList,
   (newVal) => {
@@ -40,24 +46,24 @@ const computedLayout = () => {
   state.showList = handleSourceData(state.dataList, state.column, { remain: true })
 }
 
-const ClickHandle = (item) => {
-  emit('click', item)
-}
 onMounted(() => {
   computedLayout()
 })
+const { showType } = toRefs(props)
 const { column, dataList, showList } = toRefs(state)
 </script>
 <style lang="stylus">
 .container
   display flex
   flex-wrap wrap
-  .el-row
+  .card-box
     width 100%
-    justify-content space-between
-    .column-item
-      width 240px
-      margin-bottom 20px
-    .el-card
-      cursor pointer
+    .el-row
+      width 100%
+      justify-content space-between
+      .column-item
+        width 240px
+        margin-bottom 20px
+      .el-card
+        cursor pointer
 </style>

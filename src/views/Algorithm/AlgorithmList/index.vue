@@ -1,10 +1,13 @@
 <template>
-  <Grid :data-list="dataList" @click="enterDetail"></Grid>
+  <Grid :data-list="dataList">
+    <template #default="slotProps">{{ slotProps }}</template>
+  </Grid>
 </template>
 <script setup>
 import { reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 import Grid from '@/components/layout/Grid/index.vue'
+import data from '@/config/algorithm'
 
 const state = reactive({
   dataList: [
