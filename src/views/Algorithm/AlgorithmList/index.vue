@@ -7,7 +7,7 @@
             {{ dataHeader[index] }}
           </span>
           <span class="content">
-            {{ item }}
+            {{ index != 'stable' && index != 'linear' ? item : item == true ? '是' : '否' }}
           </span>
         </div>
       </div>
