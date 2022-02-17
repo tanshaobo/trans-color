@@ -27,7 +27,6 @@ const props = defineProps({
     default: () => []
   }
 })
-const emit = defineEmits(['click'])
 const state = reactive({
   column: 0,
   dataList: [],
