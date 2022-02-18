@@ -14,7 +14,7 @@
   </section>
 </template>
 <script setup>
-import { onMounted, reactive, toRefs, ref, watch } from 'vue'
+import { onMounted, onUnmounted, reactive, toRefs, ref, watch, nextTick } from 'vue'
 import handleSourceData from './Hooks/handleSourceData'
 
 const props = defineProps({
@@ -32,21 +32,29 @@ const state = reactive({
   dataList: [],
   showList: []
 })
-watch(
-  props.dataList,
-  (newVal) => {
-    state.dataList = JSON.parse(JSON.stringify(newVal))
-  },
-  { immediate: true, deep: true }
-)
 const box = ref()
 const computedLayout = () => {
   state.column = Math.floor(box.value.clientWidth / 260)
   state.showList = handleSourceData(state.dataList, state.column, { remain: true })
 }
-
+watch(
+  () => props.dataList,
+  (prev) => {
+    state.dataList = JSON.parse(JSON.stringify(prev))
+    if (prev) {
+      nextTick(() => {
+        computedLayout()
+      })
+    }
+  },
+  { deep: true, immediate: true }
+)
+window.addEventListener('resize', computedLayout)
 onMounted(() => {
   computedLayout()
+})
+onUnmounted(() => {
+  window.removeEventListener('resize')
 })
 const { showType } = toRefs(props)
 const { column, dataList, showList } = toRefs(state)
