@@ -29,14 +29,16 @@
   </el-form>
   <Grid :data-list="dataList" class="grid">
     <template #default="slotProps">
-      <div v-for="(item, index) in slotProps.item" :key="item.id">
-        <div v-if="dataHeader[index]" class="row">
-          <span class="title">
-            {{ dataHeader[index] }}
-          </span>
-          <span class="content">
-            {{ index != 'stable' && index != 'linear' ? item : item == true ? '是' : '否' }}
-          </span>
+      <div @click="enterDetail(slotProps.item)">
+        <div v-for="(item, index) in slotProps.item" :key="item.id">
+          <div v-if="dataHeader[index]" class="row">
+            <span class="title">
+              {{ dataHeader[index] }}
+            </span>
+            <span class="content">
+              {{ index != 'stable' && index != 'linear' ? item : item == true ? '是' : '否' }}
+            </span>
+          </div>
         </div>
       </div>
     </template>
@@ -73,6 +75,7 @@ const state = reactive({
 const router = useRouter()
 
 const enterDetail = (item) => {
+  console.log(item)
   router.push({
     name: 'AlgorithmDetail',
     params: {

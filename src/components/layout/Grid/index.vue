@@ -54,7 +54,7 @@ onMounted(() => {
   computedLayout()
 })
 onUnmounted(() => {
-  window.removeEventListener('resize')
+  window.removeEventListener('resize', computedLayout)
 })
 const { showType } = toRefs(props)
 const { column, dataList, showList } = toRefs(state)
