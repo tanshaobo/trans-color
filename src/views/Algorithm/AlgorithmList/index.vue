@@ -75,7 +75,6 @@ const state = reactive({
 const router = useRouter()
 
 const enterDetail = (item) => {
-  console.log(item)
   router.push({
     name: 'AlgorithmDetail',
     params: {
