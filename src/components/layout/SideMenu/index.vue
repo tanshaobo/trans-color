@@ -50,18 +50,22 @@ watch(
 const getMenus = (data) => {
   const loop = (data) => {
     return data.reduce((iter, item) => {
-      item.children
-        ? iter.push({
+      if (item.menu) {
+        if (item.showChildren) {
+          iter.push({
             label: item.label,
             key: item.path,
             path: item.path,
             children: loop(item.children)
           })
-        : iter.push({
+        } else {
+          iter.push({
             label: item.label,
             key: item.path,
             path: item.path
           })
+        }
+      }
       return iter
     }, [])
   }
@@ -69,7 +73,7 @@ const getMenus = (data) => {
 }
 
 onMounted(() => {
-  state.menuOptions = getMenus(router.options.routes.filter((item) => item.isMenu))
+  state.menuOptions = getMenus(router.options.routes.filter((item) => item.menu))
 })
 const { activeRoute, expandedActiveKey, collapse, menuOptions } = toRefs(state)
 </script>
