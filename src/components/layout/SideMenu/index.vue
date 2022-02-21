@@ -10,9 +10,9 @@
   </el-menu>
 </template>
 <script setup>
-import menuTree from './components/MenuTree.vue'
 import { onMounted, reactive, toRefs, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import menuTree from './components/MenuTree.vue'
 // 用来获取 路由信息
 const route = useRoute()
 // 用来跳转 路由
