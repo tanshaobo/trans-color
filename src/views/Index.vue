@@ -4,7 +4,9 @@
       <SideMenu />
     </el-aside>
     <el-container>
-      <el-header></el-header>
+      <el-header>
+        <Header />
+      </el-header>
       <el-main>
         <router-view></router-view>
       </el-main>
@@ -16,6 +18,8 @@
 <script setup>
 import { reactive } from 'vue'
 import SideMenu from '@/components/layout/SideMenu/index.vue'
+import Header from '@/components/layout/Header/index.vue'
+
 const source = [
   { Id: 1, Pid: 0, title: '1' },
   { Id: 2, Pid: 0, title: '2' },

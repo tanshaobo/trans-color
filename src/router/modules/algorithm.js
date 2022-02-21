@@ -2,7 +2,7 @@
  * @Author: tanshaobo
  * @Date: 2022-02-09 13:13:51
  * @LastEditors: tanshaobo
- * @LastEditTime: 2022-02-21 14:00:26
+ * @LastEditTime: 2022-02-21 14:57:19
  * @Description: 算法
  * @FilePath: \trans-color\src\router\modules\algorithm.js
  */
@@ -29,6 +29,7 @@ const algorithm = {
         crumb: [
           {
             path: '/algorithm',
+            name: 'AlgorithmList',
             label: '列表'
           }
         ]
@@ -45,10 +46,12 @@ const algorithm = {
         crumb: [
           {
             path: '/algorithm',
+            name: 'AlgorithmList',
             label: '列表'
           },
           {
             path: '/AlgorithmDetail',
+            name: 'AlgorithmDetail',
             label: '详情'
           }
         ]

@@ -35,7 +35,6 @@ watch(
   route,
   (newVal, oldVal) => {
     const { matched } = newVal
-    console.log(matched)
     state.expandedActiveKey = matched
       .filter((item, index) => index < matched.length - 1 && index < 2)
       .map((item) => item.meta.subMenu)
