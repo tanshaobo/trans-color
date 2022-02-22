@@ -56,16 +56,17 @@ nextTick(() => {
   drawAll(nums)
 
   const bubbleSort = async (arr) => {
-    var len = arr.length
-    for (var i = 0; i < len; i++) {
-      for (var j = 0; j < len - 1 - i; j++) {
+    let len = arr.length
+    for (let i = 0; i < len; i++) {
+      for (let j = 0; j < len - 1 - i; j++) {
         if (arr[j] > arr[j + 1]) {
-          //相邻元素两两对比
-          var temp = arr[j + 1] //元素交换
+          // 相邻元素两两对比
+          let temp = arr[j + 1] // 元素交换
           arr[j + 1] = arr[j]
           arr[j] = temp
         }
       }
+      // eslint-disable-next-line no-await-in-loop
       await drawAll(arr) // 一边排序一边重新画
     }
     return arr

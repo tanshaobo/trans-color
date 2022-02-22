@@ -2,12 +2,23 @@
  * @Author: tanshaobo
  * @Date: 2022-02-11 09:23:55
  * @LastEditors: tanshaobo
- * @LastEditTime: 2022-02-14 14:18:04
+ * @LastEditTime: 2022-02-21 16:42:27
  * @Description: 算法配置
  * @FilePath: \trans-color\src\config\algorithm.js
  */
+export const dictionary = {
+  id: '编号',
+  label: '名称',
+  stable: '是否稳定',
+  linear: '是否线性',
+  timeComplexity: '时间复杂度',
+  bastComplexity: '最低复杂度',
+  worstComplexity: '最高复杂度',
+  spaceComplexity: '空间复杂度',
+  baseIdea: '基础思想'
+}
 
-const data = [
+export const data = [
   {
     id: 1,
     label: '冒泡排序',

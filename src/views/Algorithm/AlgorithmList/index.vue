@@ -49,7 +49,7 @@ import { reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 import Grid from '@/components/layout/Grid/index.vue'
 import { stableList, linearList } from '@/config/common'
-import data from '@/config/algorithm'
+import { dictionary, data } from '@/config/algorithm'
 import deepCopyObject from '@/utils/deepCopyObject'
 
 const dataHeader = {
