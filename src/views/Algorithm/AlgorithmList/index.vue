@@ -51,17 +51,9 @@ import Grid from '@/components/layout/Grid/index.vue'
 import { stableList, linearList } from '@/config/common'
 import { dictionary, data } from '@/config/algorithm'
 import deepCopyObject from '@/utils/deepCopyObject'
+import deleteObjectKeys from '@/utils/deleteObjectKeys'
 
-const dataHeader = {
-  id: '编号',
-  label: '名称',
-  stable: '是否稳定',
-  linear: '是否线性',
-  timeComplexity: '时间复杂度',
-  bastComplexity: '最低复杂度',
-  worstComplexity: '最高复杂度',
-  spaceComplexity: '空间复杂度'
-}
+const dataHeader = deleteObjectKeys(dictionary, 'baseIdea')
 
 const state = reactive({
   dataList: [],

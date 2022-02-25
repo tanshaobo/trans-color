@@ -2,14 +2,14 @@
  * @Author: tanshaobo
  * @Date: 2022-02-23 17:55:31
  * @LastEditors: tanshaobo
- * @LastEditTime: 2022-02-23 18:01:22
+ * @LastEditTime: 2022-02-25 10:49:10
  * @Description: 删除对象中的键值对并返回结果
  * @FilePath: \trans-color\src\utils\deleteObjectKeys.js
  */
 import deepCopyObject from './deepCopyObject'
 
 const deleteObjectKeys = (o, k) => {
-  if (Object.prototype.toString.call(o) == '[object Object]') {
+  if (Object.prototype.toString.call(o) != '[object Object]') {
     return
   }
   o = deepCopyObject(o)
@@ -20,6 +20,7 @@ const deleteObjectKeys = (o, k) => {
       delete o[i]
     })
   }
+
   return o
 }
 
