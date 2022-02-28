@@ -137,15 +137,3 @@ const search = () => {
 
 const { dataList, formData } = toRefs(state)
 </script>
-<style lang="stylus" scoped>
-.grid
-  .row
-    line-height 36px
-    display flex
-    justify-content space-between
-    .title
-      font-weight bold
-      color rgba(51, 51, 51, .8)
-    .content
-      color rgba(112, 112, 112, .8)
-</style>
