@@ -1,5 +1,4 @@
 <template>
-  <button @click="Start">开始排序</button>
   <canvas id="canvas" width="500" height="500" ref="canvas"></canvas>
 </template>
 <script setup>
