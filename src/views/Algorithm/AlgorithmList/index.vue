@@ -30,16 +30,7 @@
   <Grid :data-list="dataList" class="grid">
     <template #default="slotProps">
       <div @click="enterDetail(slotProps.item)">
-        <div v-for="(item, index) in slotProps.item" :key="item.id">
-          <div v-if="dataHeader[index]" class="row">
-            <span class="title">
-              {{ dataHeader[index] }}
-            </span>
-            <span class="content">
-              {{ index != 'stable' && index != 'linear' ? item : item == true ? '是' : '否' }}
-            </span>
-          </div>
-        </div>
+        <Row type="between" :label="dataHeader" :values="slotProps.item" />
       </div>
     </template>
   </Grid>
@@ -48,6 +39,7 @@
 import { reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 import Grid from '@/components/layout/Grid/index.vue'
+import Row from '@/components/layout/Row/index.vue'
 import { stableList, linearList } from '@/config/common'
 import { dictionary, data } from '@/config/algorithm'
 import deepCopyObject from '@/utils/deepCopyObject'
@@ -77,6 +69,8 @@ const enterDetail = (item) => {
 
 const Init = () => {
   state.dataList = deepCopyObject(data).map((i) => {
+    i.stable = i.stable ? '是' : '否'
+    i.linear = i.linear ? '是' : '否'
     i.remain = false
     return i
   })
@@ -143,7 +137,7 @@ const search = () => {
 
 const { dataList, formData } = toRefs(state)
 </script>
-<style lang="stylus">
+<style lang="stylus" scoped>
 .grid
   .row
     line-height 36px
