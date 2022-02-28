@@ -52,7 +52,7 @@ const { currentOptions, readom } = toRefs(state)
   .el-main
     display flex
     flex-direction column
-    flex 0.8
+    flex 0.5
     .el-button
       margin-bottom 10px
 </style>
