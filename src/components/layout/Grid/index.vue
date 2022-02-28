@@ -59,7 +59,7 @@ onUnmounted(() => {
 const { showType } = toRefs(props)
 const { column, dataList, showList } = toRefs(state)
 </script>
-<style lang="stylus">
+<style lang="stylus" scoped>
 .container
   display flex
   flex-wrap wrap

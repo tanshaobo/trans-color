@@ -86,12 +86,12 @@ const getChildren = (data, result, pid) => {
 
 console.log(Totree2(source), 'Totree2')
 
-const Totree3 = () => {
-  data = source.map((i) => {
-    i.children = []
-    return i
-  })
-}
+// const Totree3 = () => {
+//   data = source.map((i) => {
+//     i.children = []
+//     return i
+//   })
+// }
 </script>
 
 <style lang="stylus" scoped>

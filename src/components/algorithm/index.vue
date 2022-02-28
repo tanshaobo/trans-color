@@ -74,7 +74,7 @@ nextTick(() => {
   bubbleSort(nums)
 })
 </script>
-<style lang="stylus">
+<style lang="stylus" scoped>
 #canvas
   background #000
 </style>

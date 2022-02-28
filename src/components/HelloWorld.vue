@@ -31,8 +31,7 @@ const count = ref(0)
   </p>
 </template>
 
-<style scoped>
-a {
-  color: #42b983;
-}
+<style lang="stylus" scoped>
+a
+  color #42b983
 </style>
