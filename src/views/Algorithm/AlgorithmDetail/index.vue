@@ -30,7 +30,7 @@ const { currentOptions } = toRefs(state)
 </script>
 <style lang="stylus" scoped>
 .el-container
-  width 100%
+  width 100% !important
   .el-aside
     margin-right 10px
 </style>
