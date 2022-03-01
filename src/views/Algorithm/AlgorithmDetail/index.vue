@@ -47,12 +47,13 @@ const { currentOptions, readom } = toRefs(state)
 .el-container
   width 100% !important
   .el-aside
+    padding 15px
     margin-right 10px
     box-shadow 2px 2px 8px 2px rgba(128,0,128, .2)
   .el-main
     display flex
     flex-direction column
-    flex 0.5
+    flex unset
     .el-button
       margin-bottom 10px
 </style>
