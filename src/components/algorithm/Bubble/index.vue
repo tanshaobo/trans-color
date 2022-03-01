@@ -6,21 +6,17 @@ import { ref, nextTick } from 'vue'
 import Rect from '../hooks/Rect'
 import setNums from '../hooks/setNums'
 import setAngle from '../hooks/setAngle'
+import creatCtx from '../hooks/creatCtx'
 // 获取数组
 const nums = setNums()
 
 const canvas = ref(null)
-const creatCtx = (canvas) => {
-  const ctx = canvas.value.getContext('2d')
-  ctx.fillStyle = 'white'
-  ctx.translate(250, 250)
-  return ctx
-}
+
 // 获取角度数组
 const CosandSin = setAngle()
 
 nextTick(() => {
-  const ctx = creatCtx(canvas)
+  const ctx = creatCtx(canvas.value)
   const drawAll = (arr) => {
     return new Promise((resolve) => {
       setTimeout(() => {
