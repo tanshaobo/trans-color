@@ -2,9 +2,9 @@
  * @Author: tanshaobo
  * @Date: 2022-01-30 13:57:56
  * @LastEditors: tanshaobo
- * @LastEditTime: 2022-02-28 17:32:43
+ * @LastEditTime: 2022-03-01 16:58:48
  * @Description: 长方形构造
- * @FilePath: \trans-color\src\components\algorithm\maopao\hooks\Rect.js
+ * @FilePath: \trans-color\src\components\algorithm\hooks\Rect.js
  */
 
 class Rect {

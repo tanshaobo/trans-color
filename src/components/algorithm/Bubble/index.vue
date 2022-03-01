@@ -3,9 +3,10 @@
 </template>
 <script setup>
 import { ref, nextTick } from 'vue'
-import Rect from './hooks/Rect'
+import Rect from '../hooks/Rect'
 import setNums from '../hooks/setNums'
-// 生成数组
+import setAngle from '../hooks/setAngle'
+// 获取数组
 const nums = setNums()
 
 const canvas = ref(null)
@@ -15,11 +16,9 @@ const creatCtx = (canvas) => {
   ctx.translate(250, 250)
   return ctx
 }
-const CosandSin = []
-for (let i = 0; i < 360; i++) {
-  const jiaodu = (i / 180) * Math.PI
-  CosandSin.push({ cos: Math.cos(jiaodu), sin: Math.sin(jiaodu) })
-}
+// 获取角度数组
+const CosandSin = setAngle()
+
 nextTick(() => {
   const ctx = creatCtx(canvas)
   const drawAll = (arr) => {
