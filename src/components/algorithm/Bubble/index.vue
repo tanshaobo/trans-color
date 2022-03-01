@@ -36,7 +36,7 @@ nextTick(() => {
   }
   drawAll(nums)
 
-  const bubbleSort = async (arr) => {
+  const sort = async (arr) => {
     let len = arr.length
     for (let i = 0; i < len; i++) {
       for (let j = 0; j < len - 1 - i; j++) {
@@ -52,7 +52,7 @@ nextTick(() => {
     }
     return arr
   }
-  bubbleSort(nums)
+  sort(nums)
 })
 </script>
 <style lang="stylus" scoped>
