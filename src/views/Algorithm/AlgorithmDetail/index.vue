@@ -15,10 +15,8 @@ import { useRoute } from 'vue-router'
 import { data, dictionary } from '@/config/algorithm'
 import Row from '@/components/layout/Row/index.vue'
 import deleteObjectKeys from '@/utils/deleteObjectKeys'
-import Bubble from '@/components/algorithm/Bubble/index.vue'
 
 const files = import.meta.glob('/src/components/algorithm/*/index.vue')
-
 const route = useRoute()
 const dataHeader = deleteObjectKeys(dictionary)
 const {
